@@ -1,2 +1,2 @@
-# require './app/app'
-# run MakersBnb
+require './app/app'
+run MakersBnb
