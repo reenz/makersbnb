@@ -1,8 +1,8 @@
 feature 'List space' do
   scenario 'user can see the form to list a space' do
     sign_up
-    list_space
-    expect(current_path).to eq('/spaces')
+    click_button 'List a Space'
+    expect(current_path).to eq('/spaces/new')
   end
 
   scenario 'user can see the form to list a space' do

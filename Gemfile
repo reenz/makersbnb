@@ -6,6 +6,7 @@ ruby '2.4.1'
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
+gem 'bcrypt'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rack'
