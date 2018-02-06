@@ -16,7 +16,6 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/' do
-
     redirect '/signup'
   end
 
@@ -32,17 +31,13 @@ class MakersBnb < Sinatra::Base
 
     if @user.save
       session[:user_id] = @user.id
-      p session[:user_id]
       redirect '/bnblist'
     else
-      p 'error'
       flash.now[:errors] = @user.errors.full_messages
       erb :'/signup'
     end
 
   end
-
-
 
   get '/bnblist' do
     erb :'bnb_list'
