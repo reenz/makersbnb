@@ -1,8 +1,13 @@
 require 'capybara/rspec'
 require './app/app'
+require 'helpers/helpers'
+require 'simplecov'
 
 Capybara.app = MakersBnb
 
+RSpec.configure do |c|
+ c.include Helpers
+end
 
 RSpec.configure do |config|
 
