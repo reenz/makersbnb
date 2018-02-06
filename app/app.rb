@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
-
+require 'sinatra/flash'
 require 'sinatra/base'
+require './app/models/database_setup'
 
 class MakersBnb < Sinatra::Base
   enable :sessions
@@ -10,7 +11,7 @@ class MakersBnb < Sinatra::Base
 
   helpers do
     def current_user
-      @user ||= User.get(session[:user_id])
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
@@ -20,32 +21,30 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/signup' do
-
+  @user = User.new
   erb :signup
   end
 
   post '/signup' do
-    session[:username] = params[:username]
-    session[:email] = params[:email]
-    session[:password] = params[:password]
-
-    redirect '/bnblist'
-  end
-
-  get '/bnblist' do
     @user = User.create(username: params[:username],
                           email: params[:email],
                           password: params[:password])
 
-  if @user.save
-    session[:user_id] = @user.id
-    redirect '/home/homepage'
-  else
-    flash.now[:errors] = @user.errors.full_messages
-    erb :'/signup'
+    if @user.save
+      session[:user_id] = @user.id
+      p session[:user_id]
+      redirect '/bnblist'
+    else
+      p 'error'
+      flash.now[:errors] = @user.errors.full_messages
+      erb :'/signup'
+    end
+
   end
 
-    @username = session[:username]
+
+
+  get '/bnblist' do
     erb :'bnb_list'
   end
 
