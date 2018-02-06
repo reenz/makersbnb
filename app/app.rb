@@ -29,23 +29,16 @@ class MakersBnb < Sinatra::Base
     erb :spaces
   end
 
-  get '/new_space' do
+  get '/spaces/new' do
     erb :new_space
   end
 
-  post '/new_space' do
+  post '/spaces/new' do
     session[:space_name] = params[:space_name]
     session[:space_description] = params[:space_description]
     session[:space_price] = params[:space_price]
     session[:space_availability] = params[:space_availability]
-    # redirect '/new_space'
     redirect '/spaces'
-    # erb :new_space
   end
-
-  # get '/new_space' do
-  #     @space_name = session[:space_name]
-  #     erb :new_space
-  # end
 
 end
