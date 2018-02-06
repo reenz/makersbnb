@@ -2,9 +2,17 @@ ENV['RACK_ENV'] = 'test'
 
 require 'capybara/rspec'
 require './app/app'
+require 'helpers/helpers'
+require 'simplecov'
+require 'database_cleaner'
+
+
 
 Capybara.app = MakersBnb
 
+RSpec.configure do |c|
+ c.include Helpers
+end
 
 RSpec.configure do |config|
 

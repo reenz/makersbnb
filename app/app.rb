@@ -20,8 +20,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/signup' do
-  @user = User.new
-  erb :signup
+    erb :signup
   end
 
   post '/signup' do
@@ -31,16 +30,32 @@ class MakersBnb < Sinatra::Base
 
     if @user.save
       session[:user_id] = @user.id
-      redirect '/bnblist'
+      redirect '/spaces'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'/signup'
     end
-
   end
 
-  get '/bnblist' do
-    erb :'bnb_list'
+  get '/spaces' do
+    @username = session[:username]
+    @space_name = session[:space_name]
+    @space_description = session[:space_description]
+    @space_price = session[:space_price]
+    @space_availability = session[:space_availability]
+    erb :spaces
+  end
+
+  get '/spaces/new' do
+    erb :new_space
+  end
+
+  post '/spaces/new' do
+    session[:space_name] = params[:space_name]
+    session[:space_description] = params[:space_description]
+    session[:space_price] = params[:space_price]
+    session[:space_availability] = params[:space_availability]
+    redirect '/spaces'
   end
 
   run! if app_file == $0

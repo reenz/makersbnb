@@ -1,0 +1,9 @@
+<h2>Welcome to BNB </h2>
+<h1>Welcome <%=current_user.username%></h1>
+<form action="/spaces/new" method="get">
+  <input type="submit" value="List a Space">
+</form>
+<h3>Space name: <%=@space_name%></h3>
+<h3>Space description: <%=@space_description%></h3>
+<h3>Space price: <%=@space_price%></h3>
+<h3>Space availability: <%=@space_availability%></h3>
