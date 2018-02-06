@@ -15,4 +15,12 @@ feature 'Sign_up' do
     expect(page.status_code).to eq(200)
   end
 
+  scenario "user name displayed on the bnb list page after sign up" do
+    visit('/')
+    fill_in :username,  with: "reenz"
+    fill_in :email,  with: "reenz@test.com"
+    fill_in :password,  with: "password"
+    click_button 'Sign up'
+    expect(page).to have_content("Welcome reenz")
+  end
 end
