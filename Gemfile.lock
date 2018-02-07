@@ -138,7 +138,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   capybara
-  data_mapper
+  data_mapper (= 1.2.0)
   database_cleaner
   dm-postgres-adapter
   rack

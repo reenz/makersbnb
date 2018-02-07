@@ -5,6 +5,8 @@ class User
   include DataMapper::Resource
   include BCrypt
 
+  has n, :spaces
+
   property :id, Serial
   property :username, String, required: true, unique: true
   property :email, String, format: :email_address, required: true, unique: true

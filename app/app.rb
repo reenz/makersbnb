@@ -38,11 +38,9 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces' do
+
     @username = session[:username]
-    @space_name = session[:space_name]
-    @space_description = session[:space_description]
-    @space_price = session[:space_price]
-    @space_availability = session[:space_availability]
+    @spaces = Space.all
     erb :spaces
   end
 
@@ -51,10 +49,12 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-    session[:space_name] = params[:space_name]
-    session[:space_description] = params[:space_description]
-    session[:space_price] = params[:space_price]
-    session[:space_availability] = params[:space_availability]
+    Space.create(space_name:params[:space_name],
+      space_description: params[:space_description],
+      space_price: params[:space_price],
+      availability_start: params[:availability_start],
+      availability_end: params[:availability_end],
+      user: current_user)
     redirect '/spaces'
   end
 

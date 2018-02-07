@@ -3,7 +3,12 @@
 <form action="/spaces/new" method="get">
   <input type="submit" value="List a Space">
 </form>
-<h3>Space name: <%=@space_name%></h3>
-<h3>Space description: <%=@space_description%></h3>
-<h3>Space price: <%=@space_price%></h3>
-<h3>Space availability: <%=@space_availability%></h3>
+<% @spaces.each do |space| %>
+<li>
+  Space name: <%=space.space_name%>
+  Space description: <%=space.space_description%>
+  Space price: <%=space.space_price%>
+  Space availability from: <%=space.availability_start%>
+  Space availability to: <%=space.availability_end%>
+</li>
+<% end %>
