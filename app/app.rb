@@ -41,11 +41,6 @@ class MakersBnb < Sinatra::Base
 
     @username = session[:username]
     @spaces = Space.all
-    # @space.save
-    # @space_name = session[:space_name]
-    # @space_description = session[:space_description]
-    # @space_price = session[:space_price]
-    # @space_availability = session[:space_availability]
     erb :spaces
   end
 
@@ -60,9 +55,6 @@ class MakersBnb < Sinatra::Base
       availability_start: params[:availability_start],
       availability_end: params[:availability_end],
       user: current_user)
-
-      p params[:space_name]
-
     redirect '/spaces'
   end
 
