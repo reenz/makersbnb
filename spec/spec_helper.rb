@@ -5,6 +5,9 @@ require './app/app'
 require 'helpers/helpers'
 require 'simplecov'
 require 'database_cleaner'
+require 'database_cleaner'
+require './app/models/space'
+require './app/models/user'
 
 
 
