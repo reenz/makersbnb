@@ -10,7 +10,8 @@ feature 'List space' do
     list_space
     expect(page).to have_content("Space name: Reena's house")
     expect(page).to have_content("Lovely house with very nice garden")
-    expect(page).to have_content("£100")
-    expect(page).to have_content("11.02.2018 - 15.02.2018")
+    expect(page).to have_content("100")
+    expect(page).to have_content("2018-02-11")
+    expect(page).to have_content("2018-02-15")
   end
 end
