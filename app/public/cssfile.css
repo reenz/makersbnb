@@ -9,8 +9,32 @@
   background-color: green;
   background-image: url(http://www.html.am/images/backgrounds/background-image-2.gif);
 }
-/*
-<div style="background-image:border:1px solid #ccc;"> --> */
-.background{
 
+.booking{
+  font-family: sans-serif;
+  font-style: oblique;
+  height: 300px;
+  width: 500px;
+  align-items: center;
+  padding: 30px;
+}
+
+#booking_body{
+  align: center;
+  /* background-color: #9C82CD; */
+  background-color: #A39EDD;
+}
+#h3{
+  font-family: sans-serif;
+  font-style: oblique;
+}
+
+#booking-date{
+  visibility: hidden;
+}
+
+#req{
+  background-image:url(https://www.trigonyhotel.co.uk/wp-content/themes/sohohotel/images/tr-tile4.jpg);
+   background-size: 100%;
+   height: 100%;">
 }
