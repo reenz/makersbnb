@@ -1,14 +1,28 @@
+<div style="background-image:url(http://www.html.am/images/backgrounds/background-image-2.gif);border:1px solid #ccc;">
 <h2>Welcome to BNB </h2>
 <h1>Welcome <%=current_user.username%></h1>
 <form action="/spaces/new" method="get">
   <input type="submit" value="List a Space">
 </form>
+<table border="2">
 <% @spaces.each do |space| %>
-<li>
-  Space name: <%=space.space_name%>
-  Space description: <%=space.space_description%>
-  Space price: <%=space.space_price%>
-  Space availability from: <%=space.availability_start%>
-  Space availability to: <%=space.availability_end%>
-</li>
+<tr>
+  <th>Spaces</th>
+</tr>
+<tr>
+<td>Space name: </td><td><%=space.space_name%></td>
+</tr>
+<tr>
+  <td>Space description: </td> <td><%=space.space_description%> </td>
+</tr>
+<tr>
+  <td>Space price: </td> <td><%=space.space_price%></td>
+</tr>
+<tr>
+  <td>Space availability from: </td> <td><%=space.availability_start%></td>
+</tr>
+<tr>
+  <td>Space availability to: </td> <td><%=space.availability_end%></td>
+</tr>
 <% end %>
+</div>
