@@ -15,6 +15,10 @@ class MakersBnb < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def space_id
+      @space_id ||= Space.get(session[:space_id])
+    end
   end
 
   get '/' do
@@ -40,7 +44,6 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces' do
-
     @username = session[:username]
     @spaces = Space.all
     erb :spaces
@@ -65,6 +68,8 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/spaces/booking' do
+    session[:space_id] = params[:post_id]
+
     redirect '/booking'
   end
 
