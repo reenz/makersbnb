@@ -1,0 +1,16 @@
+.table{
+  height: 400px;
+  width: 500px;
+  align-items: center;
+  padding: 30px;
+}
+
+#back{
+  background-color: green;
+  background-image: url(http://www.html.am/images/backgrounds/background-image-2.gif);
+}
+/*
+<div style="background-image:border:1px solid #ccc;"> --> */
+.background{
+
+}

@@ -1,28 +1,51 @@
-<div style="background-image:url(http://www.html.am/images/backgrounds/background-image-2.gif);border:1px solid #ccc;">
+<div id="back">
+
+<link rel="stylesheet"  href="/cssfile.css">
 <h2>Welcome to BNB </h2>
 <h1>Welcome <%=current_user.username%></h1>
 <form action="/spaces/new" method="get">
   <input type="submit" value="List a Space">
 </form>
-<table border="2">
+<table class='table'  border="2">
+  <tr>
+    <th>Available Spaces</th>
+  </tr>
+  <tr>
+
+  </tr>
 <% @spaces.each do |space| %>
+<form class="" action="index.html" method="post">
+
+
+
 <tr>
-  <th>Spaces</th>
+  <ul>
+    <td>
+      <ul>
+        Space name: <%=space.space_name%>
+      </ul>
+      <ul>
+        Space price: <%=space.space_price%>
+      </ul>
+
+
+    </td>
+  </ul>
 </tr>
-<tr>
-<td>Space name: </td><td><%=space.space_name%></td>
-</tr>
-<tr>
-  <td>Space description: </td> <td><%=space.space_description%> </td>
-</tr>
-<tr>
+
+</form>
+<!-- <tr>
   <td>Space price: </td> <td><%=space.space_price%></td>
-</tr>
-<tr>
+</tr> -->
+<!-- <tr>
   <td>Space availability from: </td> <td><%=space.availability_start%></td>
 </tr>
 <tr>
   <td>Space availability to: </td> <td><%=space.availability_end%></td>
+</tr> -->
+<tr>
+
 </tr>
+
 <% end %>
 </div>

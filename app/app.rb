@@ -2,6 +2,8 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/flash'
 require 'sinatra/base'
 require './app/models/database_setup'
+# set :public_folder, Proc.new { File.join(public, "static") }
+
 
 class MakersBnb < Sinatra::Base
   enable :sessions
