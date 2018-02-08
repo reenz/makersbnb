@@ -21,10 +21,10 @@ module Helpers
    click_button 'List my Space'
  end
 
- def log_in(username:  'sam_maker', password: '123')
-   visit('/')
-   fill_in :username,  with: username
+ def log_in(email: 'sam@yahoo.com', password: '123')
+   visit('/login')
+   fill_in :email,  with: email
    fill_in :password,  with: password
    click_button 'Log in'
- end 
+ end
 end
