@@ -10,7 +10,10 @@ module Helpers
 
  def list_space(space_name: 'Reena\'s house',
     space_description: 'Lovely house with very nice garden',
-    space_price: '100', availability_start: '11-02-2015', availability_end: '15-02-2015')
+
+    space_price: '100', availability_start: "11-02-2015", availability_end: '15-02-2015')
+
+   
    # sign_up
    click_button 'List a Space'
    fill_in :space_name,  with: space_name

@@ -2,6 +2,8 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/flash'
 require 'sinatra/base'
 require './app/models/database_setup'
+# set :public_folder, Proc.new { File.join(public, "static") }
+
 
 class MakersBnb < Sinatra::Base
   enable :sessions
@@ -12,6 +14,10 @@ class MakersBnb < Sinatra::Base
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
+    end
+
+    def space_id
+      @space_id ||= Space.get(session[:space_id])
     end
   end
 
@@ -38,7 +44,6 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces' do
-
     @username = session[:username]
     @spaces = Space.all
     erb :spaces
@@ -57,6 +62,25 @@ class MakersBnb < Sinatra::Base
       user: current_user)
     redirect '/spaces'
   end
+
+  get '/booking' do
+    erb :booking
+  end
+
+  post '/spaces/booking' do
+    session[:space_id] = params[:post_id]
+
+    redirect '/booking'
+  end
+
+  get '/request' do
+    erb :request
+  end
+
+  post '/request' do
+    redirect '/request'
+  end
+
 
   run! if app_file == $0
 end

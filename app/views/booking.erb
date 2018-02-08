@@ -1,0 +1,29 @@
+
+<body id="booking_body">
+<h3 class ='h3'> Booking page</h3>
+<link rel="stylesheet"  href="/cssfile.css">
+<h1 class ='h3'><%=space_id.space_name%></h1>
+<form class="" action="/request" method="post">
+<table class='booking'  border="6">
+<tr>
+  <ul>
+    <td>
+      <ul>
+        Space description: <%=space_id.space_description%>
+      </ul>
+      <ul>
+        Space price: <%=space_id.space_price%>
+      </ul>
+      <ul>
+      Space available from :<%=space_id.availability_start%> to <%=space_id.availability_end%> <br>
+      <br>
+      <input class = "booking-date" type="date" name="availability_start" value="<%=space_id.availability_start%>" required>
+  <input class = "booking-date" type="date" name="availability_start" value="<%=space_id.availability_end%>" required>
+  <br><br>
+  <input type="submit" name="" value="Request to book">
+  </ul>
+  </td>
+</tr>
+</tabel>
+</form>
+</body>
