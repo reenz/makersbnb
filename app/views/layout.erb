@@ -8,10 +8,10 @@
     <% if current_user %>
       Welcome, <%= current_user.username %>
       <br><br>
-      <!-- <form action="/sessions" method="post">
+      <form action="/sessions" method="post">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Sign out">
-      </form> -->
+        <input type="submit" value="log out">
+      </form>
       <% else %>
         Welcome to BnB
       <% end %>
@@ -24,6 +24,11 @@
           <% end %>
         </ul>
         <% end %>
+      <% if flash[:notice] %>
+          <div id="notice">
+          <%= flash[:notice] %>
+          </div>
+      <% end %>
       <%= yield %> <!-- this then yields to the view which has been called by your controller -->
   </body>
 </html>

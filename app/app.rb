@@ -38,6 +38,12 @@ class MakersBnb < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'goodbye'
+    redirect '/'
+  end
+
   post '/signup' do
     @user = User.create(username: params[:username],
                           email: params[:email],
