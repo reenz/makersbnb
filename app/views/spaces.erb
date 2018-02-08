@@ -14,9 +14,7 @@
 
   </tr>
 <% @spaces.each do |space| %>
-<form class="" action="index.html" method="post">
-
-
+<form class="" action="spaces/booking" method="post">
 
 <tr>
   <ul>
@@ -27,7 +25,9 @@
       <ul>
         Space price: <%=space.space_price%>
       </ul>
-
+      <ul>
+        <input type="submit" value="Book here">
+      </ul>
 
     </td>
   </ul>
