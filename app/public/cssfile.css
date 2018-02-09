@@ -1,23 +1,44 @@
-.table{
-  height: 400px;
+.table, th, td{
+  height: 100px;
   width: 500px;
   align-items: center;
   padding: 30px;
+  margin: auto;
+  border: 5px solid black;
+
+  /* border-color: black; */
+
 }
 
-#back{
-  background-color: green;
+.main{
+  width: 50%;
+  margin: 100px auto;
+  text-align: center;
+}
+
+html{
+  background-color: #C06C84 !important;
 
 }
 
-.booking{
-  font-family: sans-serif;
-  font-style: oblique;
-  height: 300px;
-  width: 500px;
-  align-items: center;
-  padding: 30px;
+body{
+    background-color: #C06C84 !important;
+
 }
+input[type=text], input[type=email], input[type=password] {
+  width: 50%;
+  height: 50px;
+  font-size: 24.5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+input[type=submit] {
+  width: 30%;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
 
 #booking_body{
   align: center;

@@ -22,8 +22,8 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/' do
-    # redirect '/signup'
-    erb :index
+    redirect '/signup'
+    # erb :index
   end
 
   get '/signup' do
