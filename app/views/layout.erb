@@ -46,6 +46,12 @@
           <ul class="navbar-nav mr-auto">
 
           </ul>
+          <form action="/signup" method="get" class="form-inline my-2 my-lg-0">
+            <!-- <input type="hidden" name="_method" value="delete"> -->
+            <!-- <input type="submit" value="log out"> -->
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">sign-up</button>
+          </form>
+
           <form action="/login" method="get" class="form-inline my-2 my-lg-0">
             <!-- <input type="hidden" name="_method" value="delete"> -->
             <!-- <input type="submit" value="log out"> -->
@@ -69,6 +75,10 @@
           <%= flash[:notice] %>
           </div>
       <% end %>
+      <div class="main">
+
+
       <%= yield %> <!-- this then yields to the view which has been called by your controller -->
+      </div>
   </body>
 </html>
