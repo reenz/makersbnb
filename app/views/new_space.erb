@@ -1,12 +1,22 @@
 
-<div style="background-image:url(http://www.html.am/images/backgrounds/background-image-2.gif);border:1px solid #ccc;">
-<form action="/spaces/new" method="post" id="myform">
-  <input type="text" name="space_name" placeholder="space name" required><br><br>
-  <textarea rows="10" cols="40" name="space_description" placeholder="space description" form="myform">
-  </textarea><br><br>
-  <input type="text" name="space_price" placeholder="price per night"  required>
-  <input type="date" name="availability_start" required>
-  <input type="date" name="availability_end" required><br><br>
-  <input type="submit" value="List my Space">
-</form>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>List Space</title>
+  </head>
+  <body>
+
+    <form action="/spaces/new" method="post" id="myform">
+      <input type="text" name="space_name" placeholder="space name" required><br><br>
+      <textarea rows="10" cols="40" name="space_description" placeholder="space description" form="myform">
+      </textarea><br><br>
+      <input type="text" name="space_price" placeholder="price per night"  required>
+      <input type="date" name="availability_start" required>
+      <input type="date" name="availability_end" required><br><br>
+      <input type="submit" value="List my Space">
+    </form>
+
+
+  </body>
+</html>
