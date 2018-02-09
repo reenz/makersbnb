@@ -34,7 +34,14 @@
 }
 
 #req{
-  background-image:url(https://www.trigonyhotel.co.uk/wp-content/themes/sohohotel/images/tr-tile4.jpg);
-   background-size: 100%;
-   height: 100%;">
+  background-image:url(https://www.trigonyhotel.co.uk/wp-content/themes/sohohotel/images/tr-tile4.jpg) no-repeat center center fixed;
+   /*background-size: 100%;*/
+   height: 50%;
+   weight: 50%;
+
+   /*background: url(https://www.trigonyhotel.co.uk/wp-content/themes/sohohotel/images/tr-tile4.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
 }

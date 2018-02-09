@@ -1,7 +1,7 @@
 module Helpers
 
   def sign_up(username: 'reenz', email: 'reenz@test.com', password: 'password')
-    visit('/')
+    visit('/signup')
     fill_in :username,  with: username
     fill_in :email,  with: email
     fill_in :password,  with: password
@@ -13,7 +13,7 @@ module Helpers
 
     space_price: '100', availability_start: "11-02-2015", availability_end: '15-02-2015')
 
-   
+
    # sign_up
    click_button 'List a Space'
    fill_in :space_name,  with: space_name
