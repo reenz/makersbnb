@@ -1,5 +1,7 @@
 Makersbnb with Reena, Sam, Alex and Ben
 
+![Alt text](img/homepage.png)
+
 ```
 As a User
 So I can list a new space
