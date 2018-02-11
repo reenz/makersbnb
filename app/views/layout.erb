@@ -1,71 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type='text/css' href="/cssfile.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
     <meta charset="utf-8">
     <title>BnB</title>
+    <link rel="stylesheet" type='text/css' href="/cssfile.css">
   </head>
   <body>
     <% if current_user %>
-      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" >Makersbnb</a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/spaces">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/spaces/new">List Space</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/request">Requests</a>
-            </li>
-          </ul>
-          <form action="/sessions" method="post" class="form-inline my-2 my-lg-0">
-            <input type="hidden" name="_method" value="delete">
-            <!-- <input type="submit" value="log out"> -->
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">log out</button>
-          </form>
+    <nav>
+    <div class='navigation'>
+      <a href="/">Home</a>
+      <a href="/spaces">View available spaces</a>
+      <a href="/spaces/new">List Space</a>
+      <a href="/request">Requests</a>
+      <!-- <a href="/sessions" data-method="delete">Log out</a> -->
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="log out" class="logoff">
+      </form>
         </div>
-      </nav>
-      Welcome, <%= current_user.username %>
+      </nav><br>
+      <h3> Welcome, <%= current_user.username %></h3>
       <% else %>
-      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" >Makersbnb</a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-
-          </ul>
-          <form action="/signup" method="get" class="form-inline my-2 my-lg-0">
-            <!-- <input type="hidden" name="_method" value="delete"> -->
-            <!-- <input type="submit" value="log out"> -->
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">sign-up</button>
-          </form>
-
-          <form action="/login" method="get" class="form-inline my-2 my-lg-0">
-            <!-- <input type="hidden" name="_method" value="delete"> -->
-            <!-- <input type="submit" value="log out"> -->
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">login</button>
-          </form>
-        </div>
-      </nav>
-
+      <nav>
+      <% if !current_user %>
+        <a href="/login">Log in</a>
+        <a href="/signup">Sign up</a>
+     <% end %>
+    </nav>
       <% end %>
 
       <br><br>
       <% if flash[:errors] && !flash[:errors].empty? %>
         <ul id='errors'>
           <%flash[:errors].each do |error| %>
-          <li><%= error %></li>
+          <%= error %>
           <% end %>
         </ul>
         <% end %>

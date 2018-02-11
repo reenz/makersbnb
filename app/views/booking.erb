@@ -1,6 +1,6 @@
 
-<h3 class ='h3'> Booking page</h3>
-<h1 class ='h3'><%=@current_space.space_name%></h1>
+<h3> Booking page</h3>
+<h3 <%=@current_space.space_name%></h3><br><br>
 <form action="/request" method="post" >
 <table class='booking'  border="6">
 <tr>
@@ -18,7 +18,7 @@
       <ul>
       Space available from :<%=@current_space.availability_start%> to <%=@current_space.availability_end%> <br>
       <br>
-      <input class = "booking-date" type="date" name="availability_start" value="<%=@current_space.availability_start%>" required>
+      <input class = "booking-date" type="date" name="availability_start" value="<%=@current_space.availability_start%>" required><br><br>
   <input class = "booking-date" type="date" name="availability_end" value="<%=@current_space.availability_end%>" required>
   <br><br>
   <input type="hidden" name="space_book_id" value="<%=@current_space.id%>">

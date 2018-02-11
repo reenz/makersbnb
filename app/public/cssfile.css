@@ -1,9 +1,9 @@
 .table, th, td{
   height: 100px;
-  width: 500px;
+  width: 400px;
   align-items: center;
-  padding: 30px;
-  margin: auto;
+  padding: 50px;
+  margin: auto ;
   border: 5px solid black;
 }
 
@@ -15,32 +15,60 @@
 
 html{
   background: linear-gradient(#00CCFF, #0099FF) no-repeat fixed;
-  background-image: url("https://image.freepik.com/free-vector/abstract-background-with-a-3d-pattern_1319-68.jpg") !important ;
-  background-size:cover;
+  background: no-repeat fixed;
+  background-image: url("https://imaginedwebdesign.com/wp-content/uploads/2015/08/Bambu-Tea-House-background-snip.jpg") ;
   background-repeat: center;
   background-attachment: fixed;
+  background-size: cover;
+  color: black;
 
 }
 
-input[type=text], input[type=email], input[type=password] {
+nav{
+  overflow: hidden;
+  width: 100%;
+  padding: 8px;
+  background-color: #7b8723;
+  list-style-type: none;
+}
+
+a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: left;
+}
+
+
+input[type=text], input[type=email], input[type=password] ,input[type=date]{
   width: 50%;
-  height: 50px;
+  height: 40px;
   font-size: 20px;
-  box-shadow: 0 8px 16px 0 rgba(155, 8, 8, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(5,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-input[type=submit] {
+input[type=submit]:not(.logoff) {
   width: 230px;
   height: 30px;
   font-size: 18px;
   border-radius: 10px;
 }
 
+.logoff {
+  float: right;
+  width: 70px;
+  height: 60px;
+  font-size: 20px;
+  box-shadow: 0 8px 16px 0 rgba(5,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 
 #booking_body{
   align: center;
 }
-h3{
+
+h3 {
   font-family: sans-serif;
   font-style: oblique;
 }
@@ -53,6 +81,3 @@ h3{
   float: left;
 
 }
-/* section{
-  border-style: solid; border-width:thin; border-color: black;
-} */
