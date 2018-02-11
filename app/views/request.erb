@@ -1,6 +1,69 @@
 
+<section id="reqdiv">
+<h3>Requests I have made</h3>
+<% @requests_made.each do |book| %>
+<tr>
+  <ul>
+    <td>
+      <ul>
+        Space name: <%=book.space.space_name%>
+      </ul>
+      <ul>
+        Space price: <%=book.space.space_price%>
+      </ul>
+      <ul>
+      from : <%=book.start_date%>
+      </ul>
+      <ul>
+      to : <%=book.end_date%>
+      </ul>
+    </td><br>
+  </ul>
+</tr>
+<% end %>
+</section>
 
-<body id="req">
-<link rel="stylesheet"  href="/cssfile.css">
-<h3>Your booking is confirmed!!</h3>
-</body>
+<section id="reqrecdiv">
+<h3>Requests Received</h3>
+<% @requests_received.each do |book| %>
+<tr>
+  <ul>
+    <td>
+      <ul>
+        Requested By: <%= book.user.username %>
+      </ul>
+      <ul>
+        Space name: <%=book.space.space_name%>
+      </ul>
+      <ul>
+        Space price: <%=book.space.space_price%>
+      </ul>
+      <ul>
+      from : <%=book.start_date%>
+      </ul>
+      <ul>
+      to : <%=book.end_date%>
+      </ul>
+      <ul>
+        Confirmed: <%= book.confirmed %>
+      </ul>
+    </td><br>
+
+    <% if !book.confirmed %>
+      <form class="" action="/confirm/<%=book.id%>" method="post">
+        <input type="submit" name="accept" value="Accept request by <%=book.user.username%>">
+        <input type="hidden" name="answer" value="accept">
+      </form>
+      <br>
+      <form class="" action="/confirm/<%=book.id%>" method="post">
+        <input type="submit" name="deny" value="Deny request by <%=book.user.username%>">
+        <input type="hidden" name="answer" value="deny">
+      </form>
+    <% end %>
+
+
+  </ul>
+
+</tr><br>
+<% end %>
+</section>

@@ -1,22 +1,19 @@
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>List Space</title>
-  </head>
-  <body>
-
+    <h3>List Space</h3>
     <form action="/spaces/new" method="post" id="myform">
       <input type="text" name="space_name" placeholder="space name" required><br><br>
-      <textarea rows="10" cols="40" name="space_description" placeholder="space description" form="myform">
+      <label for="address">
+      Please enter your address : <br>
+      <textarea rows="5" cols="40" name="address" form="myform">
       </textarea><br><br>
-      <input type="text" name="space_price" placeholder="price per night"  required>
+      </label>
+      <label for="space_description">
+      Please enter description of the space : <br>
+      <textarea rows="5" cols="40" name="space_description" placeholder="space description" form="myform">
+      </textarea><br><br>
+      </label>
+      <input type="text" name="space_price" placeholder="price per night"  required><br><br>
       <input type="date" name="availability_start" required>
       <input type="date" name="availability_end" required><br><br>
       <input type="submit" value="List my Space">
     </form>
-
-
-  </body>
-</html>

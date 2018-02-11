@@ -1,46 +1,24 @@
-<div id="back">
-
-<link rel="stylesheet"  href="/cssfile.css">
-<h1>Welcome <%=current_user.username%></h1>
-<!-- <form action="/spaces/new" method="get">
-  <input type="submit" value="List a Space">
-</form> -->
-<table class='table'  border="2">
-
-  
+<h3> Listed Spaces </h3><br>
+<table>
 <% @spaces.each do |space| %>
-<form action="spaces/booking" method="post">
+<form action="spaces/booking/<%=space.id%>">
 <tr>
-  <ul>
     <td>
       <ul>
-        Space name: <%=space.space_name%>
+        Space Listed By: <%=space.user.username %>
+      </ul>
+      <ul>
+        Space name: <%=space.space_name %>
       </ul>
       <ul>
         Space price: <%=space.space_price%>
       </ul>
       <ul>
-        <input type="hidden" name="post_id" value="<%=space.id%>">
         <input type="submit" value="Book here">
       </ul>
-
     </td>
-  </ul>
 </tr>
 
 </form>
-<!-- <tr>
-  <td>Space price: </td> <td><%=space.space_price%></td>
-</tr> -->
-<!-- <tr>
-  <td>Space availability from: </td> <td><%=space.availability_start%></td>
-</tr>
-<tr>
-  <td>Space availability to: </td> <td><%=space.availability_end%></td>
-</tr> -->
-<tr>
-
-</tr>
-
 <% end %>
-</div>
+</table>

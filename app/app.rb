@@ -13,11 +13,8 @@ class MakersBnb < Sinatra::Base
 
   helpers do
     def current_user
+      # p "calling current user"
       @current_user ||= User.get(session[:user_id])
-    end
-
-    def space_id
-      @space_id ||= Space.get(session[:space_id])
     end
   end
 
@@ -27,6 +24,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/signup' do
+    # p "Calling signup"
     erb :signup
   end
 
@@ -66,7 +64,6 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces' do
-    @username = session[:username]
     @spaces = Space.all
     erb :spaces
   end
@@ -76,33 +73,56 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-    Space.create(space_name:params[:space_name],
+    Space.create(space_name: params[:space_name],
       space_description: params[:space_description],
       space_price: params[:space_price],
       availability_start: params[:availability_start],
       availability_end: params[:availability_end],
-      user: current_user)
+      address: params[:address],
+      user_id: current_user.id)
     redirect '/spaces'
   end
 
-  get '/booking' do
+  get '/spaces/booking/:post_id' do
+    @current_space = Space.get(params[:post_id])
     erb :booking
   end
 
-  post '/spaces/booking' do
-    session[:space_id] = params[:post_id]
-
-    redirect '/booking'
-  end
-
   get '/request' do
+    @requests_made = current_user.bookings
+    @requests_received = current_user.spaces.flat_map { |s| s.bookings }
     erb :request
   end
 
   post '/request' do
+    space_id = params[:space_book_id]
+    space = Space.get(space_id)
+    start_date = Date.parse(params[:availability_start])
+    end_date = Date.parse(params[:availability_end])
+    if start_date > end_date
+      flash[:notice] = "Start date can't be after end date"
+      redirect '/spaces/booking/' + space.id.to_s
+    elsif space.unavailable?(start_date, end_date)
+      flash[:notice] = "Space not available for the given dates"
+      redirect '/spaces/booking/' + space.id.to_s
+    elsif space.booked?(start_date, end_date)
+      p "space already booked validation failed"
+      flash[:notice] = "Space already booked for the given dates"
+      redirect '/spaces/booking/' + space.id.to_s
+    else
+      booking = Booking.create(start_date: start_date, end_date: end_date, space_id: space_id,
+                              user_id: current_user.id)
+      flash.now[:errors] = booking.errors.full_messages
+    end
     redirect '/request'
   end
 
+  post '/confirm/:request_id' do
+    booking = Booking.get(params[:request_id])
+    ans = params[:answer] == "accept" ? true : false
+    booking.update(confirmed: ans)
+    redirect '/request'
+  end
 
   run! if app_file == $0
 end

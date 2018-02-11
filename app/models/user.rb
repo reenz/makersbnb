@@ -5,7 +5,11 @@ class User
   include DataMapper::Resource
   include BCrypt
 
-  has n, :spaces
+  # Spaces listed by this user
+  has n, :spaces, :model => "Space"
+
+  # Bookings requested by this user
+  has n, :bookings, :model => "Booking"
 
   property :id, Serial
   property :username, String, required: true, unique: true

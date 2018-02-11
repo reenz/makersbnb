@@ -5,9 +5,6 @@
   padding: 30px;
   margin: auto;
   border: 5px solid black;
-
-  /* border-color: black; */
-
 }
 
 .main{
@@ -17,23 +14,23 @@
 }
 
 html{
-  background-color: #C06C84 !important;
+  background: linear-gradient(#00CCFF, #0099FF) no-repeat fixed;
+  background-image: url("https://image.freepik.com/free-vector/abstract-background-with-a-3d-pattern_1319-68.jpg") !important ;
+  background-size:cover;
+  background-repeat: center;
+  background-attachment: fixed;
 
 }
 
-body{
-    background-color: #C06C84 !important;
-
-}
 input[type=text], input[type=email], input[type=password] {
   width: 50%;
   height: 50px;
-  font-size: 24.5px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  font-size: 20px;
+  box-shadow: 0 8px 16px 0 rgba(155, 8, 8, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 input[type=submit] {
-  width: 30%;
+  width: 230px;
   height: 30px;
   font-size: 18px;
   border-radius: 10px;
@@ -42,17 +39,20 @@ input[type=submit] {
 
 #booking_body{
   align: center;
-  /* background-color: #9C82CD; */
-  background-color: #A39EDD;
 }
-#h3{
+h3{
   font-family: sans-serif;
   font-style: oblique;
 }
 
-#booking-date{
-  visibility: hidden;
+#reqrecdiv{
+  text-align: right;
 }
 
-#req{
+#reqdiv{
+  float: left;
+
 }
+/* section{
+  border-style: solid; border-width:thin; border-color: black;
+} */
