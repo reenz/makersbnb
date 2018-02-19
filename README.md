@@ -1,6 +1,8 @@
 Makersbnb with Reena, Sam, Alex and Ben
 
-![Alt text](img/homepage.png)
+![Alt text](img/signup.png)
+![Alt text](img/listaspace.png)
+![Alt text](img/requests.png)
 
 ```
 As a User
